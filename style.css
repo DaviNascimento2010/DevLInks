@@ -79,12 +79,17 @@ body {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slideOut 0.2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
-  }
+  animation: slideIn 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highLightColor);
+}
 
 #switch span {
   display: block;
@@ -161,7 +166,7 @@ footer {
   font-size: 14px;
 }
 
- /* media querries */
+ /* Media querries */
 @media(min-width: 700px) {
   :root {
     --bgUrl: url(assets/bg-desktop.jpg)
@@ -169,5 +174,25 @@ footer {
 
   .light {
     --bgUrl: url(assets/bg-desktop-light.jpg);
+  }
+}
+
+/* Animation */
+
+@keyframes slideIn {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
